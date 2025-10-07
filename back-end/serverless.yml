@@ -1,0 +1,69 @@
+org: lamenth
+app: to-do-app
+service: todo-backend
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ${env:AWS_REGION}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - dynamodb:PutItem
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:BatchWriteItem
+        - dynamodb:Query
+        - dynamodb:Scan
+      Resource:
+        - arn:aws:dynamodb:${env:AWS_REGION}:${env:AWS_ACCOUNT_ID}:table/${env:DYNAMO_TABLE_NAME}
+        - arn:aws:dynamodb:${env:AWS_REGION}:${env:AWS_ACCOUNT_ID}:table/${env:DYNAMO_TABLE_NAME}/index/*
+
+functions:
+  createTask:
+    handler: handler.createTask
+    events:
+      - http:
+          path: tasks
+          method: post
+
+  createBoard:
+    handler: handler.createBoard
+    events:
+      - http:
+          path: boards
+          method: post
+
+  getTasksByBoardId:
+    handler: handler.getTasksByBoardId
+    events:
+      - http:
+          path: tasks
+          method: get
+
+  getAllBoards:
+    handler: handler.getAllBoards
+    events:
+      - http:
+          path: boards
+          method: get
+
+  updateTaskStatus:
+    handler: handler.updateTaskStatus
+    events:
+      - http:
+          path: tasks/status
+          method: patch
+  deleteTask:
+    handler: handler.deleteTask
+    events:
+      - http:
+          path: tasks
+          method: delete
+  deleteBoard:
+    handler: handler.deleteBoard
+    events:
+      - http:
+          path: boards
+          method: delete
