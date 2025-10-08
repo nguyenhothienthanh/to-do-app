@@ -32,13 +32,18 @@ This app supports **full CRUD** operations on tasks and boards, optimized for pe
 | Database    | AWS DynamoDB (NoSQL)                          |
 | Hosting     | AWS CloudFront + S3 (static frontend)         |
 | Monitoring  | AWS CloudWatch                                |
-| Auth (planned) | Cognito or JWT-based authentication 🔒     |
+| Auth (planned) | Cognito or JWT-based authentication       |
 
 ---
 
+## 📐 Architecture Diagram
+
+![Architecture Diagram](./architecture-diagram.png)
+
+---
 ## ⚙️ Setup & Installation
 
-### 🔐 1. Clone the repo
+### 1. Clone the repo
 ```bash
 git clone https://github.com/your-username/to-do-app.git
 cd to-do-app
@@ -67,13 +72,5 @@ sls deploy
 cd frontend
 npm start
 ```
-### 6. Future developement
-- 🔐 User authentication — Sign up / Sign in via AWS Cognito or JWT
-- 👥 Team collaboration — Boards shared between multiple users
-- 🗃️ Filter & search tasks
-- 📱 Mobile-first UI enhancements
-- 🧪 Unit & integration tests with Jest or React Testing Library
-- 📦 CI/CD pipeline for auto-deploy
-
-### 7. Author
+### 6. Author
 Made by NguyenHoThienThanh - also known as Lamenth
