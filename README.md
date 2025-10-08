@@ -45,7 +45,7 @@ This app supports **full CRUD** operations on tasks and boards, optimized for pe
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/your-username/to-do-app.git
+git clone https://github.com/nguyenhothienthanh/to-do-app.git
 cd to-do-app
 ```
 ### 2. Install dependencies
@@ -58,10 +58,10 @@ npm install
 ```
 ### 3.Configure environment variables
 #### In frontend/.env
-REACT_APP_API_BASE=https://your-api-id.execute-api.ap-southeast-1.amazonaws.com/prod
+REACT_APP_API_BASE=https://fu0a8bn8o5.execute-api.ap-southeast-1.amazonaws.com/dev
 #### In backend/.env or serverless.yml using environment vars
-DYNAMO_TABLE_NAME=KanbanApp
-AWS_REGION=ap-southeast-1
+- DYNAMO_TABLE_NAME=KanbanApp
+- AWS_REGION=ap-southeast-1
 ### 4. Deploy backend (AWS)
 ```bash
 cd backend
